@@ -1,0 +1,48 @@
+设计的类：	主类Calculator7		
+		主界面类MainView
+
+		标准计算器类StandardCalculator
+		标准计算器事件处理类StandardEvent
+
+		科学计算器类ScienceCalculator
+		科学计算器事件处理类ScienceEvent
+		
+		程序员计算器类ProgrammerCalculator
+		程序员计算器事件处理类ProgrammerEvent
+
+主类Calculator7:
+				只进行类的实例化
+				将全部类声明为static（偷懒做法）
+				或
+				在实例化事件处理类的同时，把相应的计算器界面类对象用构造方法传入类中（此法更符合面向对象思想）
+
+主界面类MainView：（传入三种计算器实例）	继承边框类JFrame
+				创建一个边框jfm（标题，图标，位置，大小，大小不可改变）
+				一个主面板pan（设置为卡片式布局管理器）并将三种计算器实例添加到此面板中，同时设置标准计算器显示在面板中（布局管理器.show()）
+				字体设计：宋体，常规样式，大小为18
+				菜单栏
+				菜单：查看（V）visit	编辑（E）edit		帮助（H）help
+
+				菜单项：标准型（T）	科学型（S）	程序员（P）
+
+					     复制（C）	粘贴（P）
+
+					     查看帮助（V）关于计算器（A）
+
+				
+标准计算器类StandardCalculator：继承面板类JPanel
+		成员：	两个文本框（水平对齐方式为右对齐，背景色为白色，去掉边框，上下文本框字体大小不同。
+				28个按钮
+
+		构造方法中：
+				设置为网格包布局管理器
+				创建成员
+				添加组件
+				注册监听
+
+标准计算器事件处理类（传入标准计算器界面类的实例）：实现动作事件
+	成员：	private String lastOperator="=";	//保存运算符，默认为=
+			private double result=0;	//计算结果
+			private boolean flag=true;	//标记是否开始
+			private double save=0;		//定义变量存放所存储的数据
+	方法实现
